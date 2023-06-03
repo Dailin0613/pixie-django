@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+
+    <link
+      rel="stylesheet"
+      href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}"
+    />
+    <link rel="stylesheet" href="{% static 'css/fontawesome.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/tooplate-main.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/owl.css' %}" />
+
+    <title>{% block title %} {% endblock %} - Pixie</title>
+  </head>
+  <body>
+    <div id="pre-header">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <span>Checked every updated from your favorite products</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div>{% include "base/navbar.html" %}</div>
+    <div>{% block content %} {% endblock %}</div>
+    <div>{% include "base/footer.html" %}</div>
+
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+    <!-- Additional Scripts -->
+    <script src="{% static 'js/custom.js' %}"></script>
+    <script src="{% static 'js/owl.js' %}"></script>
+    <script src="{% static 'js/isotope.js' %}"></script>
+  </body>
+</html>

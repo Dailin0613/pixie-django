@@ -1,0 +1,62 @@
+{% extends "base/layout.html" %} {% load static %} {% block title %}{{product.name}}{% endblock %} {% block content %}
+<div class="single-product">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="section-heading">
+          <div class="line-dec"></div>
+          <h1>Product {{ product.name }}</h1>
+        </div>
+      </div>
+      <div class="col-md-6">
+            <div class="product-slider">
+              <div id="slider" class="flexslider">
+                <ul class="slides">
+                  <li>
+                    <img title="{{product.name}}" src="{{ product.image }}" />
+                  </li>
+                </ul>
+              </div>
+            </div>
+      </div>
+      <div class="col-md-6">
+        <div class="right-content">
+          <h4>{{ product.name }}</h4>
+          <h6>{{ product.price }}</h6>
+          <p>{{ product.description }}</p>
+          <span>7 left on stock</span>
+          <form action="{% url 'new-order' product.id %}" method="post">
+            {% csrf_token %}
+            <label for="quantity">Quantity:</label>
+            <input
+              name="quantity"
+              type="quantity"
+              class="quantity-text"
+              id="quantity"
+              onfocus="if(this.value == '1') { this.value = ''; }"
+              onBlur="if(this.value == '') { this.value = '1';}"
+              value="1"
+            />
+            <input type="submit" class="button" value="Order Now!" />
+          </form>
+          <div class="down-content">
+            <div class="categories">
+              <a href="{% url 'category' %}"><h6>See all categories</h6></a>
+            </div>
+            <div class="share">
+              <h6>
+                Share:
+                <span
+                  ><a href="#"><i class="fa fa-facebook"></i></a
+                  ><a href="#"><i class="fa fa-linkedin"></i></a
+                  ><a href="#"><i class="fa fa-twitter"></i></a
+                ></span>
+              </h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

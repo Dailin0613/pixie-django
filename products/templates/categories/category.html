@@ -1,0 +1,11 @@
+{% extends "base/layout.html" %} {% load static %} {% block title %}Products{% endblock %} {% block content %}
+<div class="categories">
+  {% for cat in categories %}
+  <h6>Category:
+
+    <span><a href="#">{{ cat.name }}</a></span>
+
+  </h6>
+  {%endfor%}
+</div>
+{% endblock %}
